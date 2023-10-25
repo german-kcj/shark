@@ -152,7 +152,7 @@ Continue adding to the current code within the ``||loops: on start||`` block the
 
 ### ~
 
-  ```block
+  <!-- ```block
   // @hide
   let Player1 = sprites.create(img`
   . f f f . f f f f . f f f . 
@@ -176,7 +176,8 @@ Continue adding to the current code within the ``||loops: on start||`` block the
   controller.moveSprite(Player1)
   // @hide
   Player1.setStayInScreen(true)
-  
+   -->
+```block
   let Fruit = sprites.create(img`
   . . . . . . . . . . . 6 6 6 6 6 
   . . . . . . . . . 6 6 7 7 7 7 8 
