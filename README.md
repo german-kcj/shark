@@ -14,6 +14,17 @@ Teens with little or no familiarity with programming concepts.
 
 ## Project
 
+OK, We've created our player!
+
+### ~hint
+
+#### Renaming the sprite variable
+
+We can rename our character from ``mySprite`` to ``player`` (or anything else that you'd like) by clicking the drop down anywhere you see the ``mySprite`` variable and selecting ``Rename variable...``. If you change the variable's name, keep that in mind as you go through the rest of this lesson. Each time you see ``mySprite``, use your variable name instead.
+
+### ~
+
+
 <!-- ```sim
 info.onScore(12, function () {
     game.setGameOverMessage(true, "You did it!")
@@ -145,8 +156,6 @@ Continue adding to the current code within the ``||loops: on start||`` block the
 - Introduce the concept and add a ``||scene:tilemap||`` for random placement.
     
 ### ~hint
-
-#### From the ONE thAT WoRKs
 
 - Make sure that the ``||scene:tilemap||`` is **10 by 8 units**.  Change the size in the Tilemap Editor.
 - For now we will leave the ``||scene:tilemap||`` blank.  We'll create our world later on.
