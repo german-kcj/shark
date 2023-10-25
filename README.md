@@ -1,4 +1,12 @@
- # Lesson Plan: MakeCode Arcade Game Development Introduction
+### ~hint
+
+#### Local variables
+
+The variables ``||variables:sprite||`` and ``||variables:otherSprite||`` are called _local variables_. They are created when the block for the collision runs, and they can only be used inside of that block. When that block runs, the ``||variables:sprite||`` variable holds the ``||sprites:Player||`` sprite involved in the collision, and the ``||variables:otherSprite||`` variable holds the ``||sprites:Food||`` sprite.
+
+### ~
+
+# Lesson Plan: MakeCode Arcade Game Development Introduction
 
 ## Objective
 By the end of this lesson, students will be able to create a game using MakeCode Arcade that incorporates core game mechanics, enemy AI, scoring, timers, and additional features such as sound and visual effects.
