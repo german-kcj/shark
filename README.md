@@ -145,9 +145,11 @@ Continue adding to the current code within the ``||loops: on start||`` block the
     - Introduce the concept and add a ``||scene:tilemap||`` for random placement.
         
     ~hint
+
     - Make sure that the ``||scene:tilemap||`` is **10 by 8 units**.  Change the size in the Tilemap Editor.
     - For now we will leave the ``||scene:tilemap||`` blank.  We'll create our world later on.
     - Make sure that the ``||scene:tilemap||`` is placed before the ``||scene:place it randomly||`` block.
+    
     ~
 
   <!-- ```block
