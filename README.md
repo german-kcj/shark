@@ -14,17 +14,6 @@ Teens with little or no familiarity with programming concepts.
 
 ## Project
 
-OK, We've created our player!
-
-### ~hint
-
-#### Renaming the sprite variable
-
-We can rename our character from ``mySprite`` to ``player`` (or anything else that you'd like) by clicking the drop down anywhere you see the ``mySprite`` variable and selecting ``Rename variable...``. If you change the variable's name, keep that in mind as you go through the rest of this lesson. Each time you see ``mySprite``, use your variable name instead.
-
-### ~
-
-
 <!-- ```sim
 info.onScore(12, function () {
     game.setGameOverMessage(true, "You did it!")
@@ -114,9 +103,9 @@ info.startCountdown(10)
 ## Lesson Outline
 
 ### Introduction
-- Welcome and introduce the concept of game development with MakeCode Arcade.
-- Explain that we will create a game with multiple features and levels.
-- Demo a completed version of the game and briefly introduce the core components of the game.
+    - Welcome and introduce the concept of game development with MakeCode Arcade.
+    - Explain that we will create a game with multiple features and levels.
+    - Demo a completed version of the game and briefly introduce the core components of the game.
 
 ### LEVEL 1 - Core Game Mechanics 
 #### 1.1. Setting Up the Player1 Sprite
@@ -151,10 +140,10 @@ Player1.setStayInScreen(true)
 
 #### 1.2. Creating and Placing Fruit
 Continue adding to the current code within the ``||loops: on start||`` block the following:
-- Create a ``||sprites:Fruit sprite of kind Food||``.
-- Try to ``||scene:place it randomly||`` on the screen. *This will not work as expected, as we have not defined a **Tilemap**. *
-- Introduce the concept and add a ``||scene:tilemap||`` for random placement.
-    
+    - Create a ``||sprites:Fruit sprite of kind Food||``.
+    - Try to ``||scene:place it randomly||`` on the screen. *This will not work as expected, as we have not defined a **Tilemap**. *
+    - Introduce the concept and add a ``||scene:tilemap||`` for random placement.
+        
 ### ~hint
 
 - Make sure that the ``||scene:tilemap||`` is **10 by 8 units**.  Change the size in the Tilemap Editor.
@@ -188,6 +177,7 @@ Continue adding to the current code within the ``||loops: on start||`` block the
   // @hide
   Player1.setStayInScreen(true)
    -->
+
 ```block
 let Fruit = sprites.create(img`
 . . . . . . . . . . . 6 6 6 6 6 
