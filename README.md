@@ -1,3 +1,65 @@
+``|primary button|``
+
+``||secondary button||``
+
+``||loops:repeat 4 times||``
+
+```blocks
+console.log(":)")
+// @highlight
+console.log(":(")
+```
+
+```blocks
+// @hide
+function myCoolFunction() {
+
+}
+
+// @hide
+let mySprite = sprites.create(img`1`);
+
+mySprite.x += 50;
+myCoolFunction();
+```
+
+```blocks
+// @collapsed
+function myCoolFunction() {
+    console.log("this");
+    console.log("is");
+    console.log("a");
+    console.log("really");
+    console.log("long");
+    console.log("function");
+}
+
+// @collapsed
+game.onUpdate(() => {
+    console.log("this");
+    console.log("is");
+    console.log("a");
+    console.log("really");
+    console.log("long");
+    console.log("event");
+})
+
+myCoolFunction();
+```
+
+```cards
+basic.showNumber(0)
+basic.showLeds(`
+. . . . .
+. . . . .
+. . # . .
+. . . . .
+. . . . .
+`)
+basic.showString("Hello!")
+basic.clearScreen()
+```
+
 ~hint
 
 #### Local variables
