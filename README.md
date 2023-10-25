@@ -14,7 +14,7 @@ Teens with little or no familiarity with programming concepts.
 
 ## Project
 
-```sim
+<!-- ```sim
 info.onScore(12, function () {
     game.setGameOverMessage(true, "You did it!")
     game.gameOver(true)
@@ -98,7 +98,7 @@ Enemy1.follow(Player1, 60)
 info.setScore(0)
 info.startCountdown(10)
 
-```
+``` -->
 
 ## Lesson Outline
 
@@ -109,46 +109,46 @@ info.startCountdown(10)
 
 ### LEVEL 1 - Core Game Mechanics 
 #### 1.1. Setting Up the Player1 Sprite
-   - Show how to create a ``||sprites:Player1 sprite of kind Player||``.
-   - Add a ``||controller:block||`` to allow controling the **Player1** sprite with the arrow keys or buttons.
-   - Explain the option to keep the **Player1** within the screen or handle when it leaves the screen.
-   - Add the the ``||sprites:block||`` to keep the **Player1** within the screen.
-   - Test the game.  You should see and be able to control the Player1 Sprite.
+- Show how to create a ``||sprites:Player1 sprite of kind Player||``.
+- Add a ``||controller:block||`` to allow controling the **Player1** sprite with the arrow keys or buttons.
+- Explain the option to keep the **Player1** within the screen or handle when it leaves the screen.
+- Add the the ``||sprites:block||`` to keep the **Player1** within the screen.
+- Test the game.  You should see and be able to control the Player1 Sprite.
 
-   ```blocks
-   let Player1 = sprites.create(img`
-    . f f f . f f f f . f f f . 
-    f f f f f c c c c f f f f f 
-    f f f f b c c c c b f f f f 
-    f f f c 3 c c c c 3 c f f f 
-    . f 3 3 c c c c c c 3 3 f . 
-    . f c c c c 4 4 c c c c f . 
-    . f f c c 4 4 4 4 c c f f . 
-    . f f f b f 4 4 f b f f f . 
-    . f f 4 1 f d d f 1 4 f f . 
-    . . f f d d d d d d f f . . 
-    . . e f e 4 4 4 4 e f e . . 
-    . e 4 f b 3 3 3 3 b f 4 e . 
-    . 4 d f 3 3 3 3 3 3 c d 4 . 
-    . 4 4 f 6 6 6 6 6 6 f 4 4 . 
-    . . . . f f f f f f . . . . 
-    . . . . f f . . f f . . . . 
-    `, SpriteKind.Player)
+```blocks
+let Player1 = sprites.create(img`
+. f f f . f f f f . f f f . 
+f f f f f c c c c f f f f f 
+f f f f b c c c c b f f f f 
+f f f c 3 c c c c 3 c f f f 
+. f 3 3 c c c c c c 3 3 f . 
+. f c c c c 4 4 c c c c f . 
+. f f c c 4 4 4 4 c c f f . 
+. f f f b f 4 4 f b f f f . 
+. f f 4 1 f d d f 1 4 f f . 
+. . f f d d d d d d f f . . 
+. . e f e 4 4 4 4 e f e . . 
+. e 4 f b 3 3 3 3 b f 4 e . 
+. 4 d f 3 3 3 3 3 3 c d 4 . 
+. 4 4 f 6 6 6 6 6 6 f 4 4 . 
+. . . . f f f f f f . . . . 
+. . . . f f . . f f . . . . 
+`, SpriteKind.Player)
 controller.moveSprite(Player1)
 Player1.setStayInScreen(true)
 ```
 
 #### 1.2. Creating and Placing Fruit
 Continue adding to the current code within the ``||loops: on start||`` block the following:
-   - Create a ``||sprites:Fruit sprite of kind Food||``.
-   - Try to ``||scene:place it randomly||`` on the screen. *This will not work as expected, as we have not defined a **Tilemap**. *
-   - Introduce the concept and add a ``||scene:tilemap||`` for random placement.
+- Create a ``||sprites:Fruit sprite of kind Food||``.
+- Try to ``||scene:place it randomly||`` on the screen. *This will not work as expected, as we have not defined a **Tilemap**. *
+- Introduce the concept and add a ``||scene:tilemap||`` for random placement.
     
-  ### ~hint 
+### ~hint 
 
-    - Make sure that the ``||scene:tilemap||`` is **10 by 8 units**.  Change the size in the Tilemap Editor.
-    - For now we will leave the ``||scene:tilemap||`` blank.  We'll create our world later on.
-    - Make sure that the ``||scene:tilemap||`` is placed before the ``||scene:place it randomly||`` block.
+- Make sure that the ``||scene:tilemap||`` is **10 by 8 units**.  Change the size in the Tilemap Editor.
+- For now we will leave the ``||scene:tilemap||`` blank.  We'll create our world later on.
+- Make sure that the ``||scene:tilemap||`` is placed before the ``||scene:place it randomly||`` block.
 
 ### ~
 
