@@ -62,7 +62,7 @@ basic.showString("Hello!")
 basic.clearScreen()
 ```
 
-@hint
+//@hint
 
 #### Local variables
 
