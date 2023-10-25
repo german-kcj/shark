@@ -1,75 +1,3 @@
-### @explicitHints true
-
-``|primary button|``
-
-``||secondary button||``
-
-``||loops:repeat 4 times||``
-
-```blocks
-console.log(":)")
-// @highlight
-console.log(":(")
-```
-
-```blocks
-// @hide
-function myCoolFunction() {
-
-}
-
-// @hide
-let mySprite = sprites.create(img`1`);
-
-mySprite.x += 50;
-myCoolFunction();
-```
-
-```blocks
-// @collapsed
-function myCoolFunction() {
-    console.log("this");
-    console.log("is");
-    console.log("a");
-    console.log("really");
-    console.log("long");
-    console.log("function");
-}
-
-// @collapsed
-game.onUpdate(() => {
-    console.log("this");
-    console.log("is");
-    console.log("a");
-    console.log("really");
-    console.log("long");
-    console.log("event");
-})
-
-myCoolFunction();
-```
-
-```cards
-basic.showNumber(0)
-basic.showLeds(`
-. . . . .
-. . . . .
-. . # . .
-. . . . .
-. . . . .
-`)
-basic.showString("Hello!")
-basic.clearScreen()
-```
-
-//@hint
-
-#### Local variables
-
-The variables ``||variables:sprite||`` and ``||variables:otherSprite||`` are called _local variables_. They are created when the block for the collision runs, and they can only be used inside of that block. When that block runs, the ``||variables:sprite||`` variable holds the ``||sprites:Player||`` sprite involved in the collision, and the ``||variables:otherSprite||`` variable holds the ``||sprites:Food||`` sprite.
-
-hint@
-
 # Lesson Plan: MakeCode Arcade Game Development Introduction
 
 ## Objective
@@ -261,182 +189,182 @@ Continue adding to the current code within the ``||loops: on start||`` block the
   Player1.setStayInScreen(true)
    -->
 ```block
-  let Fruit = sprites.create(img`
-  . . . . . . . . . . . 6 6 6 6 6 
-  . . . . . . . . . 6 6 7 7 7 7 8 
-  . . . . . . 8 8 8 7 7 8 8 6 8 8 
-  . . e e e e c 6 6 8 8 . 8 7 8 . 
-  . e 2 5 4 2 e c 8 . . . 6 7 8 . 
-  e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
-  e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
-  e 2 e e 2 2 2 2 e e e e c 6 8 . 
-  c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
-  . c 2 e e e 2 e 2 4 2 2 2 2 c . 
-  . . c 2 2 2 e e 2 2 2 2 2 2 2 e 
-  . . . e c c e c 2 2 2 2 2 2 2 e 
-  . . . . . . . c 2 e e 2 2 e 2 c 
-  . . . . . . . c e e e e e e 2 c 
-  . . . . . . . . c e 2 2 2 2 c . 
-  . . . . . . . . . c c c c c . . 
-  `, SpriteKind.Food)
-  tiles.setCurrentTilemap(tilemap`level1`)
-  tiles.placeOnRandomTile(Fruit, assets.tile`transparency16`)
+let Fruit = sprites.create(img`
+. . . . . . . . . . . 6 6 6 6 6 
+. . . . . . . . . 6 6 7 7 7 7 8 
+. . . . . . 8 8 8 7 7 8 8 6 8 8 
+. . e e e e c 6 6 8 8 . 8 7 8 . 
+. e 2 5 4 2 e c 8 . . . 6 7 8 . 
+e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
+e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
+e 2 e e 2 2 2 2 e e e e c 6 8 . 
+c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
+. c 2 e e e 2 e 2 4 2 2 2 2 c . 
+. . c 2 2 2 e e 2 2 2 2 2 2 2 e 
+. . . e c c e c 2 2 2 2 2 2 2 e 
+. . . . . . . c 2 e e 2 2 e 2 c 
+. . . . . . . c e e e e e e 2 c 
+. . . . . . . . c e 2 2 2 2 c . 
+. . . . . . . . . c c c c c . . 
+`, SpriteKind.Food)
+tiles.setCurrentTilemap(tilemap`level1`)
+tiles.placeOnRandomTile(Fruit, assets.tile`transparency16`)
 ```
 
 #### 1.3. Collision Detection - *Player1 catches Fruit*
-   - Discuss how to check for Fruit pickup.
-   - Explain how to detect collisions between the Player1 and the Fruit.
-   - Implement logic to handle the Fruit pickup event.
-   - Add the ``||sprites:overlaps ||``event block and make sure that it is checking for sprites of kind **Player** and **Food**.
-   - This block will check for as long as the game is running if the sprites of kind Player and Food intersect.
-   - Add the ``||destroy||`` block and ensure that ``||otherSprite||`` is selected.  In this case it represents the **Fruit**.
-  
-    ```blocks
-    sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite)
-    })
-    ```
-    - GIF of how to add the **otherSprite** block to the ``||sprites: destroy||`` block.
-    - ![add otherSprite to destroy](https://res.cloudinary.com/garcila/image/upload/v1694377306/arcade_overlap.gif)
+- Discuss how to check for Fruit pickup.
+- Explain how to detect collisions between the Player1 and the Fruit.
+- Implement logic to handle the Fruit pickup event.
+- Add the ``||sprites:overlaps ||``event block and make sure that it is checking for sprites of kind **Player** and **Food**.
+- This block will check for as long as the game is running if the sprites of kind Player and Food intersect.
+- Add the ``||destroy||`` block and ensure that ``||otherSprite||`` is selected.  In this case it represents the **Fruit**.
+
+```blocks
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.destroy(otherSprite)
+})
+```
+- GIF of how to add the **otherSprite** block to the ``||sprites: destroy||`` block.
+- ![add otherSprite to destroy](https://res.cloudinary.com/garcila/image/upload/v1694377306/arcade_overlap.gif)
 
 ### LEVEL 2 - Adding an Enemy 
 
 **2.1. Add Enemy1**
 Add to the current code within the ``||loops: on start||`` block the following:
 
-   - Create an ``||sprite: Enemy1||`` sprite and place it randomly on the screen following the same steps used to create Player1. Make sure that the **kind** is Enemy and not Player.
-   - Explain and code the concept of having the Enemy1 ``||sprite: follow||`` the Player1.
+- Create an ``||sprite: Enemy1||`` sprite and place it randomly on the screen following the same steps used to create Player1. Make sure that the **kind** is Enemy and not Player.
+- Explain and code the concept of having the Enemy1 ``||sprite: follow||`` the Player1.
 
-  ### ~alert
+### ~alert
 
-   **Player1** Does not stand a chance, as **Enemy1** is too *fast*.  To balance the game and increase its playability click on the **plus** button within the follow block and change the speed of the Enemy1.
+**Player1** Does not stand a chance, as **Enemy1** is too *fast*.  To balance the game and increase its playability click on the **plus** button within the follow block and change the speed of the Enemy1.
 
-    ```block
-    // @hide
-    let Enemy1 = sprites.create(img`
-    . . . . c c c c c c . . . . . . 
-    . . . c 6 7 7 7 7 6 c . . . . . 
-    . . c 7 7 7 7 7 7 7 7 c . . . . 
-    . c 6 7 7 7 7 7 7 7 7 6 c . . . 
-    . c 7 c 6 6 6 6 c 7 7 7 c . . . 
-    . f 7 6 f 6 6 f 6 7 7 7 f . . . 
-    . f 7 7 7 7 7 7 7 7 7 7 f . . . 
-    . . f 7 7 7 7 6 c 7 7 6 f c . . 
-    . . . f c c c c 7 7 6 f 7 7 c . 
-    . . c 7 2 7 7 7 6 c f 7 7 7 7 c 
-    . c 7 7 2 7 7 c f c 6 7 7 6 c c 
-    c 1 1 1 1 7 6 f c c 6 6 6 c . . 
-    f 1 1 1 1 1 6 6 c 6 6 6 6 f . . 
-    f 6 1 1 1 1 1 6 6 6 6 6 c f . . 
-    . f 6 1 1 1 1 1 1 6 6 6 f . . . 
-    . . c c c c c c c c c f . . . . 
-    `, SpriteKind.Enemy)
-    Enemy1.follow(Player1, 60)
+```block
+// @hide
+let Enemy1 = sprites.create(img`
+. . . . c c c c c c . . . . . . 
+. . . c 6 7 7 7 7 6 c . . . . . 
+. . c 7 7 7 7 7 7 7 7 c . . . . 
+. c 6 7 7 7 7 7 7 7 7 6 c . . . 
+. c 7 c 6 6 6 6 c 7 7 7 c . . . 
+. f 7 6 f 6 6 f 6 7 7 7 f . . . 
+. f 7 7 7 7 7 7 7 7 7 7 f . . . 
+. . f 7 7 7 7 6 c 7 7 6 f c . . 
+. . . f c c c c 7 7 6 f 7 7 c . 
+. . c 7 2 7 7 7 6 c f 7 7 7 7 c 
+. c 7 7 2 7 7 c f c 6 7 7 6 c c 
+c 1 1 1 1 7 6 f c c 6 6 6 c . . 
+f 1 1 1 1 1 6 6 c 6 6 6 6 f . . 
+f 6 1 1 1 1 1 6 6 6 6 6 c f . . 
+. f 6 1 1 1 1 1 1 6 6 6 f . . . 
+. . c c c c c c c c c f . . . . 
+`, SpriteKind.Enemy)
+Enemy1.follow(Player1, 60)
 ```
 
-  ### ~
+### ~
 
-    ```block
-    // @hide
-    let Player1 = sprites.create(img`
-    . f f f . f f f f . f f f . 
-    f f f f f c c c c f f f f f 
-    f f f f b c c c c b f f f f 
-    f f f c 3 c c c c 3 c f f f 
-    . f 3 3 c c c c c c 3 3 f . 
-    . f c c c c 4 4 c c c c f . 
-    . f f c c 4 4 4 4 c c f f . 
-    . f f f b f 4 4 f b f f f . 
-    . f f 4 1 f d d f 1 4 f f . 
-    . . f f d d d d d d f f . . 
-    . . e f e 4 4 4 4 e f e . . 
-    . e 4 f b 3 3 3 3 b f 4 e . 
-    . 4 d f 3 3 3 3 3 3 c d 4 . 
-    . 4 4 f 6 6 6 6 6 6 f 4 4 . 
-    . . . . f f f f f f . . . . 
-    . . . . f f . . f f . . . . 
-    `, SpriteKind.Player)
-    // @hide    
-    controller.moveSprite(Player1)
-    // @hide
-    Player1.setStayInScreen(true)
-    // @hide
-    let Fruit = sprites.create(img`
-        . . . . . . . . . . . 6 6 6 6 6 
-        . . . . . . . . . 6 6 7 7 7 7 8 
-        . . . . . . 8 8 8 7 7 8 8 6 8 8 
-        . . e e e e c 6 6 8 8 . 8 7 8 . 
-        . e 2 5 4 2 e c 8 . . . 6 7 8 . 
-        e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
-        e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
-        e 2 e e 2 2 2 2 e e e e c 6 8 . 
-        c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
-        . c 2 e e e 2 e 2 4 2 2 2 2 c . 
-        . . c 2 2 2 e e 2 2 2 2 2 2 2 e 
-        . . . e c c e c 2 2 2 2 2 2 2 e 
-        . . . . . . . c 2 e e 2 2 e 2 c 
-        . . . . . . . c e e e e e e 2 c 
-        . . . . . . . . c e 2 2 2 2 c . 
-        . . . . . . . . . c c c c c . . 
-        `, SpriteKind.Food)
-    // @hide
-    tiles.setCurrentTilemap(tilemap`level1`)
-    // @hide
-    tiles.placeOnRandomTile(Fruit, assets.tile`transparency16`)
+```block
+// @hide
+let Player1 = sprites.create(img`
+. f f f . f f f f . f f f . 
+f f f f f c c c c f f f f f 
+f f f f b c c c c b f f f f 
+f f f c 3 c c c c 3 c f f f 
+. f 3 3 c c c c c c 3 3 f . 
+. f c c c c 4 4 c c c c f . 
+. f f c c 4 4 4 4 c c f f . 
+. f f f b f 4 4 f b f f f . 
+. f f 4 1 f d d f 1 4 f f . 
+. . f f d d d d d d f f . . 
+. . e f e 4 4 4 4 e f e . . 
+. e 4 f b 3 3 3 3 b f 4 e . 
+. 4 d f 3 3 3 3 3 3 c d 4 . 
+. 4 4 f 6 6 6 6 6 6 f 4 4 . 
+. . . . f f f f f f . . . . 
+. . . . f f . . f f . . . . 
+`, SpriteKind.Player)
+// @hide    
+controller.moveSprite(Player1)
+// @hide
+Player1.setStayInScreen(true)
+// @hide
+let Fruit = sprites.create(img`
+. . . . . . . . . . . 6 6 6 6 6 
+. . . . . . . . . 6 6 7 7 7 7 8 
+. . . . . . 8 8 8 7 7 8 8 6 8 8 
+. . e e e e c 6 6 8 8 . 8 7 8 . 
+. e 2 5 4 2 e c 8 . . . 6 7 8 . 
+e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
+e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
+e 2 e e 2 2 2 2 e e e e c 6 8 . 
+c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
+. c 2 e e e 2 e 2 4 2 2 2 2 c . 
+. . c 2 2 2 e e 2 2 2 2 2 2 2 e 
+. . . e c c e c 2 2 2 2 2 2 2 e 
+. . . . . . . c 2 e e 2 2 e 2 c 
+. . . . . . . c e e e e e e 2 c 
+. . . . . . . . c e 2 2 2 2 c . 
+. . . . . . . . . c c c c c . . 
+`, SpriteKind.Food)
+// @hide
+tiles.setCurrentTilemap(tilemap`level1`)
+// @hide
+tiles.placeOnRandomTile(Fruit, assets.tile`transparency16`)
 
-    let Enemy1 = sprites.create(img`
-        . . . . c c c c c c . . . . . . 
-        . . . c 6 7 7 7 7 6 c . . . . . 
-        . . c 7 7 7 7 7 7 7 7 c . . . . 
-        . c 6 7 7 7 7 7 7 7 7 6 c . . . 
-        . c 7 c 6 6 6 6 c 7 7 7 c . . . 
-        . f 7 6 f 6 6 f 6 7 7 7 f . . . 
-        . f 7 7 7 7 7 7 7 7 7 7 f . . . 
-        . . f 7 7 7 7 6 c 7 7 6 f c . . 
-        . . . f c c c c 7 7 6 f 7 7 c . 
-        . . c 7 2 7 7 7 6 c f 7 7 7 7 c 
-        . c 7 7 2 7 7 c f c 6 7 7 6 c c 
-        c 1 1 1 1 7 6 f c c 6 6 6 c . . 
-        f 1 1 1 1 1 6 6 c 6 6 6 6 f . . 
-        f 6 1 1 1 1 1 6 6 6 6 6 c f . . 
-        . f 6 1 1 1 1 1 1 6 6 6 f . . . 
-        . . c c c c c c c c c f . . . . 
-        `, SpriteKind.Enemy)
-    tiles.placeOnRandomTile(Enemy1, assets.tile`transparency16`)
-    Enemy1.follow(Player1, 60)
-    ```
+let Enemy1 = sprites.create(img`
+. . . . c c c c c c . . . . . . 
+. . . c 6 7 7 7 7 6 c . . . . . 
+. . c 7 7 7 7 7 7 7 7 c . . . . 
+. c 6 7 7 7 7 7 7 7 7 6 c . . . 
+. c 7 c 6 6 6 6 c 7 7 7 c . . . 
+. f 7 6 f 6 6 f 6 7 7 7 f . . . 
+. f 7 7 7 7 7 7 7 7 7 7 f . . . 
+. . f 7 7 7 7 6 c 7 7 6 f c . . 
+. . . f c c c c 7 7 6 f 7 7 c . 
+. . c 7 2 7 7 7 6 c f 7 7 7 7 c 
+. c 7 7 2 7 7 c f c 6 7 7 6 c c 
+c 1 1 1 1 7 6 f c c 6 6 6 c . . 
+f 1 1 1 1 1 6 6 c 6 6 6 6 f . . 
+f 6 1 1 1 1 1 6 6 6 6 6 c f . . 
+. f 6 1 1 1 1 1 1 6 6 6 f . . . 
+. . c c c c c c c c c f . . . . 
+`, SpriteKind.Enemy)
+tiles.placeOnRandomTile(Enemy1, assets.tile`transparency16`)
+Enemy1.follow(Player1, 60)
+```
 
 #### 2.2 Losing the Game - *Enemy1 catches Player1*
-  - We have done this before in step 3 of **Level 1 - Core Game Mechanics**! Except that this time we need to code what happens when Enemy1 catches Player1.
-    - Implement logic to handle the collision between sprites.
-    - Add the ``||sprites:overlaps ||``event block and make sure that it is checking for sprites of kind **Player** and **Enemy**.
-    - Discuss what should happen when a collision occurs (game over).
-    - Add the ``||game: game over||`` block and set it to lose, to end the game.
-    - Provide a message to the user by including the ``||game: use message||`` block.
-      - Set it to lose.
-      - Add a message.  Something nice, like "Better luck next time".
+- We have done this before in step 3 of **Level 1 - Core Game Mechanics**! Except that this time we need to code what happens when Enemy1 catches Player1.
+- Implement logic to handle the collision between sprites.
+- Add the ``||sprites:overlaps ||``event block and make sure that it is checking for sprites of kind **Player** and **Enemy**.
+- Discuss what should happen when a collision occurs (game over).
+- Add the ``||game: game over||`` block and set it to lose, to end the game.
+- Provide a message to the user by including the ``||game: use message||`` block.
+- Set it to lose.
+- Add a message.  Something nice, like "Better luck next time".
 
-    ```block
-    sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-        game.gameOver(false)
-        game.setGameOverMessage(false, "Better luck next time")
-    })
+```block
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+game.gameOver(false)
+game.setGameOverMessage(false, "Better luck next time")
+})
 ```
-  
+
 
 #### 2.3. Winning the Game
 We can now lose the game, but we also want to be able to win it!  Let's code our way to victory.
-   - At the moment the condition we have to win the game is to collect the Fruit.  Thankfully, we already have code that detects that collision.
-   - Add a ``||game: use message||`` block to congratulate the player and set it to win.
-   - We should add the block ``||game: game over||`` to make sure we stop the game.  Remember to make sure it is set to **win**.
+- At the moment the condition we have to win the game is to collect the Fruit.  Thankfully, we already have code that detects that collision.
+- Add a ``||game: use message||`` block to congratulate the player and set it to win.
+- We should add the block ``||game: game over||`` to make sure we stop the game.  Remember to make sure it is set to **win**.
 
-    ```block
-    sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
-        sprites.destroy(otherSprite)
-        game.setGameOverMessage(true, "You did it!")
-        game.gameOver(true)
-    })
-    ```
+```block
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+sprites.destroy(otherSprite)
+game.setGameOverMessage(true, "You did it!")
+game.gameOver(true)
+})
+```
 
 ### LEVEL 3 - Multiple Fruits and Score:
 
@@ -445,58 +373,58 @@ We have a working game, but we can make it better by increasing the number of fr
 #### 3.1 - Adding multiple Fruits
 
 - One way to add multiple Fruits is to **repeat** the code we used in Level 1.2, as many times as fruits we want to include.  
-    - First we add the ``||sprites: Fruit||`` sprite of kind **Food**.
-    - Then we place the ``||sptrites: Fruit||`` in ``||scene: random||`` palces within the tilemap.
+- First we add the ``||sprites: Fruit||`` sprite of kind **Food**.
+- Then we place the ``||sptrites: Fruit||`` in ``||scene: random||`` palces within the tilemap.
 
-  ```block
-    let Collect_Item = sprites.create(img`
-    . . . . . . . . . . . 6 6 6 6 6 
-    . . . . . . . . . 6 6 7 7 7 7 8 
-    . . . . . . 8 8 8 7 7 8 8 6 8 8 
-    . . e e e e c 6 6 8 8 . 8 7 8 . 
-    . e 2 5 4 2 e c 8 . . . 6 7 8 . 
-    e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
-    e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
-    e 2 e e 2 2 2 2 e e e e c 6 8 . 
-    c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
-    . c 2 e e e 2 e 2 4 2 2 2 2 c . 
-    . . c 2 2 2 e e 2 2 2 2 2 2 2 e 
-    . . . e c c e c 2 2 2 2 2 2 2 e 
-    . . . . . . . c 2 e e 2 2 e 2 c 
-    . . . . . . . c e e e e e e 2 c 
-    . . . . . . . . c e 2 2 2 2 c . 
-    . . . . . . . . . c c c c c . . 
-    `, SpriteKind.Food)
-    tiles.placeOnRandomTile(Collect_Item, assets.tile`transparency16`)
+```block
+let Collect_Item = sprites.create(img`
+. . . . . . . . . . . 6 6 6 6 6 
+. . . . . . . . . 6 6 7 7 7 7 8 
+. . . . . . 8 8 8 7 7 8 8 6 8 8 
+. . e e e e c 6 6 8 8 . 8 7 8 . 
+. e 2 5 4 2 e c 8 . . . 6 7 8 . 
+e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
+e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
+e 2 e e 2 2 2 2 e e e e c 6 8 . 
+c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
+. c 2 e e e 2 e 2 4 2 2 2 2 c . 
+. . c 2 2 2 e e 2 2 2 2 2 2 2 e 
+. . . e c c e c 2 2 2 2 2 2 2 e 
+. . . . . . . c 2 e e 2 2 e 2 c 
+. . . . . . . c e e e e e e 2 c 
+. . . . . . . . c e 2 2 2 2 c . 
+. . . . . . . . . c c c c c . . 
+`, SpriteKind.Food)
+tiles.placeOnRandomTile(Collect_Item, assets.tile`transparency16`)
 ```
 
-  ### ~hint
-    - But this method makes our code very **busy** and imagine if we wanted to add 50 enemies!  It will take a long time and make our code hard to manage and understand.
-    - It is much better to instruct the computer to do the adding of the fruits in random place as many times we like.  We can use a ``||loops: repeat|||`` block and set the number of repetitions to 12, creating 12 Fruits on the tilemap.
+### ~hint
+- But this method makes our code very **busy** and imagine if we wanted to add 50 enemies!  It will take a long time and make our code hard to manage and understand.
+- It is much better to instruct the computer to do the adding of the fruits in random place as many times we like.  We can use a ``||loops: repeat|||`` block and set the number of repetitions to 12, creating 12 Fruits on the tilemap.
 
-    ```block
-    for (let index = 0; index < 12; index++) {
-    Collect_Item = sprites.create(img`
-        . . . . . . . . . . . 6 6 6 6 6 
-        . . . . . . . . . 6 6 7 7 7 7 8 
-        . . . . . . 8 8 8 7 7 8 8 6 8 8 
-        . . e e e e c 6 6 8 8 . 8 7 8 . 
-        . e 2 5 4 2 e c 8 . . . 6 7 8 . 
-        e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
-        e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
-        e 2 e e 2 2 2 2 e e e e c 6 8 . 
-        c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
-        . c 2 e e e 2 e 2 4 2 2 2 2 c . 
-        . . c 2 2 2 e e 2 2 2 2 2 2 2 e 
-        . . . e c c e c 2 2 2 2 2 2 2 e 
-        . . . . . . . c 2 e e 2 2 e 2 c 
-        . . . . . . . c e e e e e e 2 c 
-        . . . . . . . . c e 2 2 2 2 c . 
-        . . . . . . . . . c c c c c . . 
-        `, SpriteKind.Food)
-    tiles.placeOnRandomTile(Collect_Item, assets.tile`transparency16`)
-    }
-    ```
+```block
+for (let index = 0; index < 12; index++) {
+Collect_Item = sprites.create(img`
+. . . . . . . . . . . 6 6 6 6 6 
+. . . . . . . . . 6 6 7 7 7 7 8 
+. . . . . . 8 8 8 7 7 8 8 6 8 8 
+. . e e e e c 6 6 8 8 . 8 7 8 . 
+. e 2 5 4 2 e c 8 . . . 6 7 8 . 
+e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
+e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
+e 2 e e 2 2 2 2 e e e e c 6 8 . 
+c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
+. c 2 e e e 2 e 2 4 2 2 2 2 c . 
+. . c 2 2 2 e e 2 2 2 2 2 2 2 e 
+. . . e c c e c 2 2 2 2 2 2 2 e 
+. . . . . . . c 2 e e 2 2 e 2 c 
+. . . . . . . c e e e e e e 2 c 
+. . . . . . . . c e 2 2 2 2 c . 
+. . . . . . . . . c c c c c . . 
+`, SpriteKind.Food)
+tiles.placeOnRandomTile(Collect_Item, assets.tile`transparency16`)
+}
+```
 
 ### ~
 - Great!  We added multiple fruits by introducing a single block.  Time to play.
@@ -506,16 +434,16 @@ We have a working game, but we can make it better by increasing the number of fr
 #### 3.2 - Add a score and modify the winning condition
 - First add a ``||info: set score||`` block at the end of our main code (within the ``||loops: on start||`` block).  Make sure the score is set to **0**.
 
-  ```block
+```block
 info.setScore(0)
 ```
 
 - Then, we need to modify our **Playe1** and **Fruit** collision detection code.  We don't want to run the instructions to end the game each time **Player1** catches a **Fruit**.  What we want is to ``||:sprite: destroy||`` the **Fruit**, and increase our ``||info: score||``. 
 
-  ```block
+```block
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite)
-    info.changeScoreBy(1)
+sprites.destroy(otherSprite)
+info.changeScoreBy(1)
 })
 ```
 
@@ -523,10 +451,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 -  Add the ``||info: on score||`` block. Change the number to 12, to match the number of fruits we created.
 -  Inside the new blockinclude the ``||game: message when WIN||`` and ``||game: game over WIN||`` blocks.
 
-  ```block
+```block
 info.onScore(12, function () {
-    game.setGameOverMessage(true, "You did it!")
-    game.gameOver(true)
+game.setGameOverMessage(true, "You did it!")
+game.gameOver(true)
 })
 ```
 
@@ -538,30 +466,30 @@ To add more excitment to the game we'll add some preassure to the **Player1** by
 
 - First add a ``||info: set countdown||`` block at the end of our main code (within the ``||loops: on start||`` block).  Make sure the score is set it to **10**.
 
-  ```block
+```block
 info.startCountdown(10)
 ```
 
 - Now we follow a similar procedure to when we added the score block:
-  - Add the ``||info: on countdown end||`` block.
-  - Inside the new block include the ``||game: message when LOSE||`` with the message *You ran out of time* and ``||game: game over LOSE||`` blocks. 
+- Add the ``||info: on countdown end||`` block.
+- Inside the new block include the ``||game: message when LOSE||`` with the message *You ran out of time* and ``||game: game over LOSE||`` blocks. 
 
-  ```block
+```block
 info.onCountdownEnd(function () {
-    game.setGameOverMessage(false, "You ran out of time")
-    game.gameOver(false)
+game.setGameOverMessage(false, "You ran out of time")
+game.gameOver(false)
 })
 ```
 #### 4.2 - Adding Sound
 
 - We'll add a sound everytime the Player1 collects a fruit. Do so by including  the ``||music: play sound ||``block at the end of the code that checks the collision bettwen the **Player1** and **fruit**.
 
-  ```block
+```block
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite)
-    info.changeScoreBy(1)
-    // @highlight
-    music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
+sprites.destroy(otherSprite)
+info.changeScoreBy(1)
+// @highlight
+music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
 })
 ```
 
@@ -569,7 +497,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 
 To embelish and personalize your game, click on the gray square within the ``||scene: set tilemap||`` block and add elements to the background.
 
-  - ``[tiles.setCurrentTilemap(tilemap`level1`)]``
+- ``[tiles.setCurrentTilemap(tilemap`level1`)]``
 
 Here are some examples:
 
@@ -583,83 +511,83 @@ Here are some examples:
 
 ```blocks
 info.onScore(12, function () {
-    game.setGameOverMessage(true, "You did it!")
-    game.gameOver(true)
+game.setGameOverMessage(true, "You did it!")
+game.gameOver(true)
 })
 info.onCountdownEnd(function () {
-    game.setGameOverMessage(false, "You ran out of time")
-    game.gameOver(false)
+game.setGameOverMessage(false, "You ran out of time")
+game.gameOver(false)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite)
-    info.changeScoreBy(1)
-    music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
+sprites.destroy(otherSprite)
+info.changeScoreBy(1)
+music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    game.gameOver(false)
-    game.setGameOverMessage(false, "Better luck next time")
+game.gameOver(false)
+game.setGameOverMessage(false, "Better luck next time")
 })
 let Collect_Item: Sprite = null
 let Player1 = sprites.create(img`
-    . f f f . f f f f . f f f . 
-    f f f f f c c c c f f f f f 
-    f f f f b c c c c b f f f f 
-    f f f c 3 c c c c 3 c f f f 
-    . f 3 3 c c c c c c 3 3 f . 
-    . f c c c c 4 4 c c c c f . 
-    . f f c c 4 4 4 4 c c f f . 
-    . f f f b f 4 4 f b f f f . 
-    . f f 4 1 f d d f 1 4 f f . 
-    . . f f d d d d d d f f . . 
-    . . e f e 4 4 4 4 e f e . . 
-    . e 4 f b 3 3 3 3 b f 4 e . 
-    . 4 d f 3 3 3 3 3 3 c d 4 . 
-    . 4 4 f 6 6 6 6 6 6 f 4 4 . 
-    . . . . f f f f f f . . . . 
-    . . . . f f . . f f . . . . 
-    `, SpriteKind.Player)
+. f f f . f f f f . f f f . 
+f f f f f c c c c f f f f f 
+f f f f b c c c c b f f f f 
+f f f c 3 c c c c 3 c f f f 
+. f 3 3 c c c c c c 3 3 f . 
+. f c c c c 4 4 c c c c f . 
+. f f c c 4 4 4 4 c c f f . 
+. f f f b f 4 4 f b f f f . 
+. f f 4 1 f d d f 1 4 f f . 
+. . f f d d d d d d f f . . 
+. . e f e 4 4 4 4 e f e . . 
+. e 4 f b 3 3 3 3 b f 4 e . 
+. 4 d f 3 3 3 3 3 3 c d 4 . 
+. 4 4 f 6 6 6 6 6 6 f 4 4 . 
+. . . . f f f f f f . . . . 
+. . . . f f . . f f . . . . 
+`, SpriteKind.Player)
 controller.moveSprite(Player1)
 Player1.setStayInScreen(true)
 tiles.setCurrentTilemap(tilemap`level1`)
 for (let index = 0; index < 12; index++) {
-    Collect_Item = sprites.create(img`
-        . . . . . . . . . . . 6 6 6 6 6 
-        . . . . . . . . . 6 6 7 7 7 7 8 
-        . . . . . . 8 8 8 7 7 8 8 6 8 8 
-        . . e e e e c 6 6 8 8 . 8 7 8 . 
-        . e 2 5 4 2 e c 8 . . . 6 7 8 . 
-        e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
-        e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
-        e 2 e e 2 2 2 2 e e e e c 6 8 . 
-        c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
-        . c 2 e e e 2 e 2 4 2 2 2 2 c . 
-        . . c 2 2 2 e e 2 2 2 2 2 2 2 e 
-        . . . e c c e c 2 2 2 2 2 2 2 e 
-        . . . . . . . c 2 e e 2 2 e 2 c 
-        . . . . . . . c e e e e e e 2 c 
-        . . . . . . . . c e 2 2 2 2 c . 
-        . . . . . . . . . c c c c c . . 
-        `, SpriteKind.Food)
-    tiles.placeOnRandomTile(Collect_Item, assets.tile`transparency16`)
+Collect_Item = sprites.create(img`
+. . . . . . . . . . . 6 6 6 6 6 
+. . . . . . . . . 6 6 7 7 7 7 8 
+. . . . . . 8 8 8 7 7 8 8 6 8 8 
+. . e e e e c 6 6 8 8 . 8 7 8 . 
+. e 2 5 4 2 e c 8 . . . 6 7 8 . 
+e 2 4 2 2 2 2 2 c . . . 6 7 8 . 
+e 2 2 2 2 2 2 2 c . . . 8 6 8 . 
+e 2 e e 2 2 2 2 e e e e c 6 8 . 
+c 2 e e 2 2 2 2 e 2 5 4 2 c 8 . 
+. c 2 e e e 2 e 2 4 2 2 2 2 c . 
+. . c 2 2 2 e e 2 2 2 2 2 2 2 e 
+. . . e c c e c 2 2 2 2 2 2 2 e 
+. . . . . . . c 2 e e 2 2 e 2 c 
+. . . . . . . c e e e e e e 2 c 
+. . . . . . . . c e 2 2 2 2 c . 
+. . . . . . . . . c c c c c . . 
+`, SpriteKind.Food)
+tiles.placeOnRandomTile(Collect_Item, assets.tile`transparency16`)
 }
 let Enemy1 = sprites.create(img`
-    . . . . c c c c c c . . . . . . 
-    . . . c 6 7 7 7 7 6 c . . . . . 
-    . . c 7 7 7 7 7 7 7 7 c . . . . 
-    . c 6 7 7 7 7 7 7 7 7 6 c . . . 
-    . c 7 c 6 6 6 6 c 7 7 7 c . . . 
-    . f 7 6 f 6 6 f 6 7 7 7 f . . . 
-    . f 7 7 7 7 7 7 7 7 7 7 f . . . 
-    . . f 7 7 7 7 6 c 7 7 6 f c . . 
-    . . . f c c c c 7 7 6 f 7 7 c . 
-    . . c 7 2 7 7 7 6 c f 7 7 7 7 c 
-    . c 7 7 2 7 7 c f c 6 7 7 6 c c 
-    c 1 1 1 1 7 6 f c c 6 6 6 c . . 
-    f 1 1 1 1 1 6 6 c 6 6 6 6 f . . 
-    f 6 1 1 1 1 1 6 6 6 6 6 c f . . 
-    . f 6 1 1 1 1 1 1 6 6 6 f . . . 
-    . . c c c c c c c c c f . . . . 
-    `, SpriteKind.Enemy)
+. . . . c c c c c c . . . . . . 
+. . . c 6 7 7 7 7 6 c . . . . . 
+. . c 7 7 7 7 7 7 7 7 c . . . . 
+. c 6 7 7 7 7 7 7 7 7 6 c . . . 
+. c 7 c 6 6 6 6 c 7 7 7 c . . . 
+. f 7 6 f 6 6 f 6 7 7 7 f . . . 
+. f 7 7 7 7 7 7 7 7 7 7 f . . . 
+. . f 7 7 7 7 6 c 7 7 6 f c . . 
+. . . f c c c c 7 7 6 f 7 7 c . 
+. . c 7 2 7 7 7 6 c f 7 7 7 7 c 
+. c 7 7 2 7 7 c f c 6 7 7 6 c c 
+c 1 1 1 1 7 6 f c c 6 6 6 c . . 
+f 1 1 1 1 1 6 6 c 6 6 6 6 f . . 
+f 6 1 1 1 1 1 6 6 6 6 6 c f . . 
+. f 6 1 1 1 1 1 1 6 6 6 f . . . 
+. . c c c c c c c c c f . . . . 
+`, SpriteKind.Enemy)
 tiles.placeOnRandomTile(Enemy1, assets.tile`transparency16`)
 Enemy1.follow(Player1, 60)
 info.setScore(0)
