@@ -23,5 +23,5 @@
         "arcade"
     ],
     "preferredEditor": "tsprj",
-    "explicitHints:: true
+    "explicitHints": "true"
 }
