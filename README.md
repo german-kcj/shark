@@ -10,7 +10,7 @@ By the end of this lesson, students will be able to create a game using MakeCode
 - **RECOMENDED**: Create a makeCode account to save and share your creations.
 
 ## Target Audience
-<span style="color:blue">Teens with little or no familiarity with programming concepts.</span>
+<span style="background-color: #FFFF00">Teens with little or no familiarity with programming concepts.</span>
 
 ## Project
 
