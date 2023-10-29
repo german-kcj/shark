@@ -114,7 +114,8 @@ info.startCountdown(10)
 
 ### LEVEL 1 - Core Game Mechanics 
 #### 1.1. Setting Up the Player1 Sprite
-<span class="docs inlineblock sprites">Player1 sprite of kind Player</span>
+
+- <span class="docs inlineblock sprites">Player1 sprite of kind Player</span>
 
 - Show how to create a ``||sprites:Player1 sprite of kind Player||``.
 - Add a ``||controller:block||`` to allow controling the **Player1** sprite with the arrow keys or buttons.
