@@ -11,6 +11,35 @@
 
 ### ~
 
+### ~reminder
+
+#### Reminder Title
+[content]
+
+### ~
+
+### ~alert
+
+#### Alert Title
+[content]
+
+### ~
+
+### ~tip
+
+#### Tip Title
+[content]
+
+### ~
+
+## ~button /writing-docs/tutorials
+
+NEXT: Tutorials
+
+## ~
+
+
+
 # Lesson Plan: MakeCode Arcade Game Development Introduction
 
 ## Objective
