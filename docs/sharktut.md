@@ -12,8 +12,8 @@
 
 ### ~hint
 
-#### Hint Title
-[content]
+@hint #### Hint Title
+blah blah
 
 ### ~
 
