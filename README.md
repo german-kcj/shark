@@ -4,6 +4,12 @@
 
 ### ~
 
+### ~hint
+
+#### Hint Title
+[content]
+
+### ~
 
 # Lesson Plan: MakeCode Arcade Game Development Introduction
 
