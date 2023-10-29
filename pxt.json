@@ -25,5 +25,6 @@
         "arcade"
     ],
     "preferredEditor": "tsprj",
-    "explicitHints": "true"
+    "explicitHints": "true",
+     "disableTargetTemplateFiles": true
 }
