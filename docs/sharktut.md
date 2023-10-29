@@ -2,6 +2,8 @@
 @avatar
 @reminder
 
+@Hint
+
 ### ~avatar [class]
 
 [content]
