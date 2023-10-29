@@ -1,47 +1,3 @@
-# GitHub Pages
-
-MakeCode uses [GitHub Pages](https://pages.github.com/) to convert your repository into a full web site!
-
-The **pages** web site will either show the rendered `README.md` file; or the compiled game running in full screen for Arcade.
-
-### #youtube
-
-https://youtu.be/vkOWnBfBqak
-
-### ~ hint
-
-#### Wait for the update
-
-It may take up to 10 minutes for updates to be reflected on the GitHub pages web site.
-
-### ~
-
-## Custom pages
-
-By default, MakeCode overrides the supporting files to render the pages project in each release. You can disable this behavior by adding this code in ``pxt.json``:
-
-```
-disableTargetTemplateFiles: true
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Lesson Plan: MakeCode Arcade Game Development Introduction
 
 ## Objective
@@ -158,6 +114,8 @@ info.startCountdown(10)
 
 ### LEVEL 1 - Core Game Mechanics 
 #### 1.1. Setting Up the Player1 Sprite
+<span class="docs inlineblock sprites">Player1 sprite of kind Player</span>
+
 - Show how to create a ``||sprites:Player1 sprite of kind Player||``.
 - Add a ``||controller:block||`` to allow controling the **Player1** sprite with the arrow keys or buttons.
 - Explain the option to keep the **Player1** within the screen or handle when it leaves the screen.
