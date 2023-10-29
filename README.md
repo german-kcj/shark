@@ -1,3 +1,10 @@
+### ~avatar [class]
+
+[content]
+
+### ~
+
+
 # Lesson Plan: MakeCode Arcade Game Development Introduction
 
 ## Objective
