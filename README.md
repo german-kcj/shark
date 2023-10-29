@@ -11,7 +11,11 @@ By the end of this lesson, students will be able to create a game using MakeCode
 
 ## Target Audience
 <span style="background-color: #FFFF00">Teens with little or no familiarity with programming concepts.</span>
+~ hint
+Wait for the update
+It may take up to 10 minutes for updates to be reflected on the GitHub pages web site.
 
+~
 ## Project
 
 <!-- ```sim
