@@ -1,3 +1,7 @@
+@hint
+@avatar
+@reminder
+
 ### ~avatar [class]
 
 [content]
