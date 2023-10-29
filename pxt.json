@@ -4,7 +4,8 @@
     "description": "",
     "dependencies": {
         "device": "*",
-        "color": "github:jwunderl/pxt-color#v0.2.2"
+        "color": "github:jwunderl/pxt-color#v0.2.2",
+        "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0"
     },
     "files": [
         "main.blocks",
